@@ -41,6 +41,10 @@ return [
             'driver' => 'array',
         ],
 
+        'custom_array' => [
+            'driver' => 'custom_array',
+        ],
+
         'database' => [
             'driver' => 'database',
             'table' => 'cache',

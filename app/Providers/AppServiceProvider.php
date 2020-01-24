@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Cache\CustomArrayStore;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Cache::extend('custom_array', function ($app) {
+            return Cache::repository(new CustomArrayStore);
+        });
     }
 }
